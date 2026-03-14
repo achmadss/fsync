@@ -5,11 +5,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.androidstarter"
+    namespace = "dev.achmad.fsync"
     compileSdk = 36
 
     defaultConfig {
-        applicationId = "com.example.androidstarter"
+        applicationId = "dev.achmad.fsync"
         minSdk = 26
         targetSdk = 36
         versionCode = 1

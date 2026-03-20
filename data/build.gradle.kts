@@ -46,4 +46,14 @@ dependencies {
     implementation(project(":core"))
     implementation(project(":domain"))
 
+    // Local persistence
+    implementation(libs.room.runtime)
+    implementation(libs.room.ktx)
+    ksp(libs.room.compiler)
+
+    // Remote protocols
+    implementation(libs.jcifs.ng)
+    implementation(libs.sardine.android)
+
+    implementation(libs.kotlinx.coroutines.core)
 }

@@ -41,6 +41,9 @@ dependencies {
     implementation(platform(libs.koin.bom))
     implementation(libs.koin.android)
 
+    implementation(libs.chucker)
+    implementation(libs.chucker.release)
+
     api(libs.okhttp.core)
     api(libs.okhttp.logging)
     api(libs.okhttp.brotli)

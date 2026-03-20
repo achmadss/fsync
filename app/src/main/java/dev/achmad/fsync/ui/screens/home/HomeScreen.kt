@@ -1,0 +1,129 @@
+package dev.achmad.fsync.ui.screens.home
+
+import android.content.res.Configuration.UI_MODE_NIGHT_YES
+import androidx.activity.compose.BackHandler
+import androidx.compose.animation.AnimatedContent
+import androidx.compose.animation.togetherWith
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.consumeWindowInsets
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.NavigationBar
+import androidx.compose.material3.NavigationBarItem
+import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.util.fastForEach
+import cafe.adriel.voyager.core.screen.Screen
+import cafe.adriel.voyager.navigator.LocalNavigator
+import cafe.adriel.voyager.navigator.tab.TabNavigator
+import dev.achmad.fsync.ui.screens.home.activity.ActivityTab
+import dev.achmad.fsync.ui.screens.home.folders.FoldersTab
+import dev.achmad.fsync.ui.screens.home.more.MoreTab
+import dev.achmad.fsync.ui.screens.home.storage.StorageTab
+import dev.achmad.fsync.ui.theme.AppTheme
+import soup.compose.material.motion.animation.materialFadeThroughIn
+import soup.compose.material.motion.animation.materialFadeThroughOut
+
+object HomeScreen: Screen {
+
+    private const val TAB_FADE_DURATION = 200
+    private const val TAB_NAVIGATOR_KEY = "HomeTabs"
+
+    private val TABS = listOf(
+        FoldersTab,
+        ActivityTab,
+        StorageTab,
+        MoreTab
+    )
+
+    @Composable
+    override fun Content() {
+        val navigator = LocalNavigator.current
+        TabNavigator(
+            tab = FoldersTab,
+            key = TAB_NAVIGATOR_KEY,
+        ) { tabNavigator ->
+
+            BackHandler(tabNavigator.current != FoldersTab) {
+                tabNavigator.current = FoldersTab
+            }
+
+            CompositionLocalProvider(LocalNavigator provides navigator) {
+                Scaffold(
+                    bottomBar = {
+                        NavigationBar {
+                            TABS.fastForEach { tab ->
+                                val selected = tabNavigator.current::class == tab::class
+                                NavigationBarItem(
+                                    selected = selected,
+                                    onClick = {
+                                        if (!selected) {
+                                            tabNavigator.current = tab
+                                        }
+                                    },
+                                    icon = {
+                                        tab.options.icon?.let { icon ->
+                                            Icon(
+                                                painter = icon,
+                                                contentDescription = null
+                                            )
+                                        }
+                                    },
+                                    label = {
+                                        Text(
+                                            text = tab.options.title,
+                                            style = MaterialTheme.typography.labelLarge,
+                                            maxLines = 1,
+                                            overflow = TextOverflow.Ellipsis,
+                                        )
+                                    }
+                                )
+                            }
+                        }
+                    }
+                ) { contentPadding ->
+                    Box(
+                        modifier = Modifier
+                            .fillMaxSize()
+                            .padding(contentPadding)
+                            .consumeWindowInsets(contentPadding)
+                    ) {
+                        AnimatedContent(
+                            targetState = tabNavigator.current,
+                            transitionSpec = {
+                                materialFadeThroughIn(
+                                    initialScale = 1f,
+                                    durationMillis = TAB_FADE_DURATION
+                                ) togetherWith materialFadeThroughOut(TAB_FADE_DURATION)
+                            },
+                            label = "tabContent",
+                        ) {
+                            tabNavigator.saveableState(key = "currentTab", it) {
+                                it.Content()
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@Composable
+@Preview
+private fun HomeScreenPreviewLightMode() {
+    AppTheme { HomeScreen.Content() }
+}
+
+@Composable
+@Preview(uiMode = UI_MODE_NIGHT_YES)
+private fun HomeScreenPreviewDarkMode() {
+    AppTheme { HomeScreen.Content() }
+}

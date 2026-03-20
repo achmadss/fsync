@@ -1,3 +1,24 @@
 <resources>
-    <string name="app_name">fsync</string>
+    <string name="app_name">FSync</string>
+
+    <!-- Home screen tabs -->
+    <string name="activity">Activity</string>
+    <string name="folders">Folders</string>
+    <string name="storage">Storage</string>
+    <string name="more">More</string>
+
+    <!-- General/Common strings -->
+    <string name="close">Close</string>
+    <string name="cancel">Cancel</string>
+    <string name="save">Save</string>
+    <string name="saved">Saved</string>
+    <string name="ok">OK</string>
+    <string name="confirm">Confirm</string>
+    <string name="general_not_selected">Not Selected</string>
+    <string name="general_selected">Selected</string>
+    <string name="disabled">Disabled</string>
+    <string name="search">Search</string>
+    <string name="no_entries_found">No entries found</string>
+    <string name="search_placeholder">Search…</string>
+
 </resources>

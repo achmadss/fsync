@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
+import com.chuckerteam.chucker.api.ChuckerInterceptor
 import dev.achmad.core.network.interceptor.IgnoreGzipInterceptor
 import dev.achmad.core.network.interceptor.UncaughtExceptionInterceptor
 import okhttp3.Cache
@@ -42,6 +43,7 @@ class NetworkHelper(
                 level = HttpLoggingInterceptor.Level.BODY
             }
             builder.addNetworkInterceptor(httpLoggingInterceptor)
+            builder.addInterceptor(ChuckerInterceptor(context))
         }
 
         builder.build()

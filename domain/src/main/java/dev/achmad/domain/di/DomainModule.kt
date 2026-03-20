@@ -1,8 +1,8 @@
 package dev.achmad.domain.di
 
+import dev.achmad.domain.folder_pair.SyncFolderUseCase
 import org.koin.dsl.module
 
 val domainModule = module {
-    // Domain module should only define domain layer dependencies
-    // like UseCases, Repository interfaces, etc.
+    factory { SyncFolderUseCase(get()) }
 }

@@ -1,4 +1,4 @@
-package dev.achmad.fsync.theme
+package dev.achmad.fsync.ui.theme
 
 import android.app.Activity
 import androidx.compose.foundation.background

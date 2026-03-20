@@ -18,8 +18,8 @@ import cafe.adriel.voyager.core.stack.StackEvent
 import cafe.adriel.voyager.navigator.Navigator
 import cafe.adriel.voyager.navigator.NavigatorDisposeBehavior
 import cafe.adriel.voyager.transitions.ScreenTransition
-import dev.achmad.fsync.screens.home.HomeScreen
-import dev.achmad.fsync.theme.AppTheme
+import dev.achmad.fsync.ui.screens.home.HomeScreen
+import dev.achmad.fsync.ui.theme.AppTheme
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.flow.callbackFlow
 import kotlinx.coroutines.flow.collectLatest

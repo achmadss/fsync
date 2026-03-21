@@ -24,9 +24,9 @@ import androidx.compose.ui.input.pointer.PointerEventPass
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.util.fastForEachIndexed
-import dev.achmad.fsync.ui.components.preference.Preference
 import dev.achmad.fsync.ui.components.AppBar
 import dev.achmad.fsync.ui.components.ScrollbarLazyColumn
+import dev.achmad.fsync.ui.components.preference.Preference
 import dev.achmad.fsync.ui.components.preference.widget.PreferenceGroupHeader
 import dev.achmad.fsync.util.onClickInput
 

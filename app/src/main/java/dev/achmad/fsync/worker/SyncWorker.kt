@@ -8,7 +8,7 @@ import androidx.work.WorkerParameters
 import androidx.work.workDataOf
 import dev.achmad.core.di.util.injectApplicationContext
 import dev.achmad.core.di.util.injectLazy
-import dev.achmad.domain.folder_pair.SyncFolderUseCase
+import dev.achmad.domain.folder_pair.usecase.SyncFolderUseCase
 import dev.achmad.fsync.util.workManager
 
 class SyncWorker(

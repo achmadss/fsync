@@ -1,5 +1,6 @@
 package dev.achmad.fsync.ui.components
 
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -19,7 +20,9 @@ import androidx.compose.ui.unit.dp
 import dev.achmad.fsync.R
 
 @Composable
-fun LogoHeader() {
+fun LogoHeader(
+    darkMode: Boolean = isSystemInDarkTheme()
+) {
     Column(
         modifier = Modifier
             .fillMaxWidth()
@@ -27,7 +30,10 @@ fun LogoHeader() {
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         Icon(
-            painter = painterResource(R.drawable.train),
+            painter = painterResource(
+                if (darkMode) R.drawable.sync_dark_mode
+                else R.drawable.sync_light_mode
+            ),
             contentDescription = "App icon",
             modifier = Modifier.size(80.dp)
         )

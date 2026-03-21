@@ -8,7 +8,12 @@ import android.view.ViewTreeObserver
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.background
+import androidx.compose.foundation.isSystemInDarkTheme
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material3.darkColorScheme
+import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
@@ -52,26 +57,37 @@ class MainActivity : ComponentActivity() {
 
         enableEdgeToEdge()
         setContent {
-            AppTheme {
-                val slideDistance = rememberSlideDistance()
-                Navigator(
-                    screen = initialScreen,
-                    disposeBehavior = NavigatorDisposeBehavior(
-                        disposeNestedNavigators = false,
-                        disposeSteps = true,
-                    )
-                ) { navigator ->
-                    ScreenTransition(
-                        modifier = Modifier.fillMaxSize(),
-                        navigator = navigator,
-                        transition = {
-                            materialSharedAxisX(
-                                forward = navigator.lastEvent != StackEvent.Pop,
-                                slideDistance = slideDistance,
-                            )
-                        },
-                    )
-                    HandleNewIntent(this@MainActivity, navigator)
+            val darkTheme = isSystemInDarkTheme()
+            val colorScheme = when {
+                darkTheme -> darkColorScheme()
+                else -> lightColorScheme()
+            }
+            Box(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .background(colorScheme.background),
+            ) {
+                AppTheme(darkTheme) {
+                    val slideDistance = rememberSlideDistance()
+                    Navigator(
+                        screen = initialScreen,
+                        disposeBehavior = NavigatorDisposeBehavior(
+                            disposeNestedNavigators = false,
+                            disposeSteps = true,
+                        )
+                    ) { navigator ->
+                        ScreenTransition(
+                            modifier = Modifier.fillMaxSize(),
+                            navigator = navigator,
+                            transition = {
+                                materialSharedAxisX(
+                                    forward = navigator.lastEvent != StackEvent.Pop,
+                                    slideDistance = slideDistance,
+                                )
+                            },
+                        )
+                        HandleNewIntent(this@MainActivity, navigator)
+                    }
                 }
             }
         }

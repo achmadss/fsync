@@ -21,4 +21,61 @@
     <string name="no_entries_found">No entries found</string>
     <string name="search_placeholder">Search…</string>
 
+    <!-- SyncStrategy display names -->
+    <string name="sync_strategy_two_way">Two-way</string>
+    <string name="sync_strategy_upload_only">Upload only</string>
+    <string name="sync_strategy_upload_then_delete">Upload then delete</string>
+    <string name="sync_strategy_upload_mirror">Upload mirror</string>
+    <string name="sync_strategy_download_only">Download only</string>
+    <string name="sync_strategy_download_then_delete">Download then delete</string>
+    <string name="sync_strategy_download_mirror">Download mirror</string>
+
+    <!-- ActivityStatus badge labels -->
+    <string name="activity_status_never_synced">NEVER SYNCED</string>
+    <string name="activity_status_syncing">SYNCING</string>
+    <string name="activity_status_synced">SYNCED</string>
+    <string name="activity_status_failed">FAILED</string>
+    <string name="activity_status_cancelled">CANCELLED</string>
+
+    <!-- ActivityStatus progress labels -->
+    <string name="progress_status_no_sync_yet">No sync yet</string>
+    <string name="progress_status_syncing">Syncing\u2026</string>
+    <string name="progress_status_up_to_date">Up to date</string>
+    <string name="progress_status_failed">Sync failed</string>
+    <string name="progress_status_cancelled">Sync cancelled</string>
+
+    <!-- Relative time -->
+    <string name="relative_just_now">Just now</string>
+    <string name="relative_a_minute_ago">A minute ago</string>
+    <string name="relative_minutes_ago">%d minutes ago</string>
+    <string name="relative_an_hour_ago">An hour ago</string>
+    <string name="relative_hours_ago">%d hours ago</string>
+    <string name="relative_yesterday">Yesterday</string>
+    <string name="relative_days_ago">%d days ago</string>
+    <string name="relative_a_week_ago">A week ago</string>
+    <string name="relative_weeks_ago">%d weeks ago</string>
+    <string name="relative_months_ago">%d months ago</string>
+    <string name="relative_a_year_ago">A year ago</string>
+    <string name="relative_years_ago">%d years ago</string>
+
+    <!-- FoldersTab -->
+    <string name="folder_pairs_empty_title">No folder pairs found</string>
+    <string name="folder_pairs_empty_description">Add a folder pair to sync your files</string>
+    <string name="add_folder_pair">Add folder pair</string>
+    <string name="filter">Filter</string>
+    <string name="last_sync">Last sync: %s</string>
+    <string name="never">Never</string>
+
+    <!-- Folder pair detail bottom sheet -->
+    <string name="stat_total">TOTAL</string>
+    <string name="stat_synced">SYNCED</string>
+    <string name="stat_remaining">REMAINING</string>
+    <string name="sync_progress">Sync progress</string>
+    <string name="last_synced">Last synced: %s</string>
+    <string name="enable">Enable</string>
+    <string name="sync_now">Sync now</string>
+    <string name="view_activity_log">View activity log</string>
+    <string name="edit">Edit</string>
+    <string name="delete_pair">Delete pair</string>
+
 </resources>

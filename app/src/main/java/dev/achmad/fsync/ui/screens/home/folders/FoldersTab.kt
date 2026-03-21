@@ -699,29 +699,6 @@ private fun FoldersTabContentPreview() {
 
 @Composable
 @Preview
-private fun FoldersTabContentPreviewBottomSheet() {
-    AppTheme {
-        val folderPair = FolderPair(
-            name = "NAS Backup",
-            localPath = "/storage/emulated/0/Music",
-            remotePath = "/NAS/Music/Youtube/Favorites",
-            storageAccountId = 0L,
-            strategy = SyncStrategy.DOWNLOAD_THEN_DELETE,
-            isEnabled = true,
-            lastSyncAt = Instant.now().minusSeconds(300),
-        )
-        FoldersTabContent(
-            state = FoldersTabUiState(
-                folderPairs = listOf(folderPair),
-                isLoading = false,
-                selectedFolderPair = folderPair,
-            )
-        )
-    }
-}
-
-@Composable
-@Preview
 private fun FoldersTabContentPreviewDark() {
     AppTheme(darkTheme = true) {
         FoldersTabContent(

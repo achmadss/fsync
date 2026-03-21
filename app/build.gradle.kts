@@ -62,6 +62,7 @@ dependencies {
     implementation(libs.voyager.tabNavigator)
     implementation(libs.voyager.transitions)
     implementation(libs.voyager.screenmodel)
+    implementation(libs.voyager.lifecycle.kmp)
 
     implementation(platform(libs.koin.bom))
     implementation(libs.koin.android)

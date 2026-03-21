@@ -26,6 +26,7 @@ room = "2.8.4"
 jcifsNg = "2.1.10"
 sardine = "0.9"
 chucker = "4.3.1"
+material-icons-extended = "1.7.8"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -46,7 +47,7 @@ androidx-material3 = { group = "androidx.compose.material3", name = "material3" 
 # added
 koin-android = { group = "io.insert-koin", name = "koin-android" }
 koin-bom = { group = "io.insert-koin", name = "koin-bom", version.ref = "koinBom" }
-material-icons = "androidx.compose.material:material-icons-extended:1.7.8"
+material-icons = { group = "androidx.compose.material", name = "material-icons-extended", version.ref = "material-icons-extended" }
 material-motion-compose-core = { module = "io.github.fornewid:material-motion-compose-core", version.ref = "materialMotionComposeCore" }
 coil-compose = { module = "io.coil-kt.coil3:coil-compose", version.ref = "coilCompose" }
 
@@ -60,6 +61,7 @@ serialization-json-okio = { module = "org.jetbrains.kotlinx:kotlinx-serializatio
 
 voyager-navigator = { module = "cafe.adriel.voyager:voyager-navigator", version.ref = "voyager" }
 voyager-screenmodel = { module = "cafe.adriel.voyager:voyager-screenmodel", version.ref = "voyager" }
+voyager-lifecycle-kmp = { module = "cafe.adriel.voyager:voyager-lifecycle-kmp", version.ref = "voyager" }
 voyager-tabNavigator = { module = "cafe.adriel.voyager:voyager-tab-navigator", version.ref = "voyager" }
 voyager-transitions = { module = "cafe.adriel.voyager:voyager-transitions", version.ref = "voyager" }
 androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
